@@ -1,0 +1,28 @@
+.MainLayout {
+  position: relative;
+  padding: 150px 250px;
+  width: 50%;
+}
+
+.logoText {
+  padding: 1px;
+  margin-bottom: 150px;
+  font-size: 58px;
+  font-weight: 800;
+  line-height: 70px;
+  letter-spacing: 0;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.logo {
+  position: absolute;
+  top: 70px;
+  left: 70px
+}
+
+.langSwitcher {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+}

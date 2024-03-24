@@ -1,0 +1,98 @@
+//.LoginForm {
+//  display: flex;
+//  flex-direction: column;
+//  align-items: center;
+//}
+//
+//.input {
+//  width: 100%;
+//  margin-top: 30px;
+//  margin-right: auto;
+//  border: none;
+//  border-bottom: 1px solid #6E6D68;
+//  outline: none;
+//  background: none;
+//  color: #FFFFFF;
+//  font-size: 24px;
+//  font-weight: 300;
+//  line-height: 29.05px;
+//  text-align: left;
+//}
+
+.LoginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+  color: #FFFFFF;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #6E6D68;
+  outline: none;
+
+  &:focus {
+    border-bottom: 1px solid #FFFFFF;
+  }
+
+  &:hover {
+    border-bottom: 1px solid #FFFFFF;
+  }
+}
+
+.loginBtn {
+  margin-top: 70px;
+  width: 246px;
+  height: 44px;
+  border: none;
+  border-radius: 24px;
+  color: #414042;
+  background: #d9d9d9;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16.94px;
+
+  &:active {
+    border: 1px solid gray;
+  }
+
+  &:hover {
+    border: 1px solid gray;
+  }
+}
+
+.flex {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.rememberMe {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 16.94px;
+  text-align: left;
+  color: #6E6D68;
+
+}
+
+.checkbox {
+  margin-right: 5px;
+}
+
+.forgotPassword {
+  color: #5789B9;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 16.94px;
+  text-align: left;
+  text-decoration: none;
+}

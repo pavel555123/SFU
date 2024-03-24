@@ -1,0 +1,34 @@
+.SecondLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-image: url("@/assets/image1.jpg");
+}
+
+.description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.logoText {
+  margin-bottom: 10px;
+  font-size: 58px;
+  font-weight: 800;
+  line-height: 70px;
+  letter-spacing: 0;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.text {
+  margin-left: 175px;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 29.05px;
+  text-align: left;
+  color: #d9d9d9;
+}
