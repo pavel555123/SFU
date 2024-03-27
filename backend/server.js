@@ -17,6 +17,34 @@ server.use(async (req, res, next) => {
     next()
 })
 
+server.post('/register', (req, res) => {
+    try {
+        const { username, password } = req.body
+        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'))
+
+        if (!username || !password) {
+            return res.status(400).json({ message: 'Username and password are required' })
+        }
+
+        const { users = [] } = db
+        const existingUser = users.find((user) => user.username === username)
+
+        if (existingUser) {
+            return res.status(400).json({ message: 'User already exists' })
+        }
+
+        const newUser = { id: users.length + 1, username, password }
+        db.users.push(newUser)
+
+        fs.writeFileSync(path.resolve(__dirname, 'db.json'), JSON.stringify(db, null, 2))
+
+        return res.json(newUser)
+    } catch (e) {
+        console.log(e)
+        return res.status(500).json({ message: e.message })
+    }
+})
+
 // Эндпоинт для логина
 server.post('/login', (req, res) => {
     try {
@@ -40,7 +68,7 @@ server.post('/login', (req, res) => {
 })
 
 // проверяем, авторизован ли пользователь
-// eslint-disable-next-line
+//eslint-disable-next-line
 server.use((req, res, next) => {
     if (!req.headers.authorization) {
         return res.status(403).json({ message: 'AUTH ERROR' })

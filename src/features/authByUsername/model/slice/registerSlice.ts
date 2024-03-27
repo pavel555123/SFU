@@ -1,15 +1,15 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {LoginSchema} from "../types/loginSchema.ts";
-import {loginByUsername} from "../services/loginByUsername/loginByUsername.ts";
+import {RegisterSchema} from "@/features/authByUsername/model/types/registerSchema.ts";
+import {registerUser} from "@/features/authByUsername/model/services/registerUser/registerUser.ts";
 
-const initialState: LoginSchema = {
+const initialState: RegisterSchema = {
     username: '',
     password: '',
     isLoading: false
 }
 
-export const loginSlice = createSlice({
-    name: 'login',
+export const registerSlice = createSlice({
+    name: 'register',
     initialState,
     reducers: {
         setUsername: (state, action: PayloadAction<string>) => {
@@ -21,19 +21,19 @@ export const loginSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(loginByUsername.pending, (state) => {
+            .addCase(registerUser.pending, (state) => {
                 state.error = undefined
                 state.isLoading = true
             })
-            .addCase(loginByUsername.fulfilled, (state) => {
+            .addCase(registerUser.fulfilled, (state) => {
                 state.isLoading = false
             })
-            .addCase(loginByUsername.rejected, (state, action) => {
+            .addCase(registerUser.rejected, (state, action: PayloadAction<string | undefined>) => {
                 state.isLoading = false
                 state.error = action.payload
             })
     },
 })
 
-export const {actions: loginActions} = loginSlice
-export const {reducer: loginReducer} = loginSlice
+export const {actions: registerActions} = registerSlice
+export const {reducer: registerReducer} = registerSlice

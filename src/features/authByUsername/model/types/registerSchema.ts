@@ -1,6 +1,6 @@
 import {AxiosError} from "axios";
 
-export interface LoginSchema {
+export interface RegisterSchema {
     username: string
     password: string
     isLoading: boolean
