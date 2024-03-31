@@ -1,14 +1,28 @@
 import cls from './MainLayout.module.scss'
-import {LoginForm} from "@/features/authByUsername";
-import {LangSwitcher} from "@/features/langSwither";
-import {Logo} from "@/shared/ui/Logo";
-export const MainLayout = () => {
+import {ReactElement} from "react"
+import { useLocation } from 'react-router-dom'
+
+interface MainLayoutProps {
+    className?: string
+    header: ReactElement
+    content: ReactElement
+}
+export const MainLayout = (props: MainLayoutProps) => {
+    const {
+        className,
+        header,
+        content,
+    } = props
+
+    const location = useLocation()
+
+    const isMain = location.pathname === '/'
+    console.log(isMain)
+
     return (
-        <div className={cls.MainLayout}>
-            <LangSwitcher classname={cls.langSwitcher}/>
-            <Logo classname={cls.logo}/>
-            <h1 className={cls.logoText}>HardSmode</h1>
-            <LoginForm/>
+        <div className={`${isMain ? cls.SecLayout : cls.MainLayout} ${className}`}>
+            {!isMain ? header : null}
+            {content}
         </div>
     );
 };

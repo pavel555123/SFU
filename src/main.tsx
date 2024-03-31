@@ -6,9 +6,9 @@ import '@/shared/config/i18n/i18n.ts'
 import "./app/styles/index.scss"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-    <StoreProvider>
         <BrowserRouter>
-            <App />
+            <StoreProvider>
+                <App />
+            </StoreProvider>
         </BrowserRouter>
-    </StoreProvider>
 );

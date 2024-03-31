@@ -7,10 +7,7 @@ export const SecondLayout = () => {
 
     return (
         <div className={cls.SecondLayout}>
-            <div className={cls.description}>
-                <Logo classname={cls.logo}/>
-                <h1 className={cls.logoText}>HardSmode</h1>
-            </div>
+            <Logo classname={cls.logo}/>
             <p className={cls.text}>{t('Лучший сервис о 3D разработке.')}<br/>{t('Освайвайте новое прямо сейчас.')}</p>
         </div>
     );
