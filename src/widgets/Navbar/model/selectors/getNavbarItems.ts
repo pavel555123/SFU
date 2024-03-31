@@ -1,4 +1,4 @@
-import {getRouteAbout, getRouteGeneral} from '@/shared/const/router'
+import {getRouteAbout, getRouteMain} from '@/shared/const/router'
 import {NavbarItemType} from '../types/navbar.ts'
 
 export const useNavbarItems = () => {
@@ -10,7 +10,7 @@ export const useNavbarItems = () => {
             text: 'О нас'
         },
         {
-            path: getRouteGeneral(),
+            path: getRouteMain(),
             text: 'Моделирование'
         },
         {
@@ -22,7 +22,7 @@ export const useNavbarItems = () => {
             text: 'Рендеры'
         },
         {
-            path: getRouteGeneral(),
+            path: getRouteMain(),
             text: 'Модели'
         }
     ]

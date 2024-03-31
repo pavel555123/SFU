@@ -16,12 +16,11 @@ export const MainLayout = (props: MainLayoutProps) => {
 
     const location = useLocation()
 
-    const isMain = location.pathname === '/'
-    console.log(isMain)
+    const isAuthPage = location.pathname === '/auth'
 
     return (
-        <div className={`${isMain ? cls.SecLayout : cls.MainLayout} ${className}`}>
-            {!isMain ? header : null}
+        <div className={`${isAuthPage ? cls.SecLayout : cls.MainLayout} ${className}`}>
+            {!isAuthPage ? header : null}
             {content}
         </div>
     );

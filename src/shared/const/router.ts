@@ -1,16 +1,10 @@
 export enum AppRoutes {
   MAIN = 'main',
+  AUTH = 'auth',
   ABOUT = 'about',
-  GENERAL = 'general',
   NOT_FOUND = 'not_found'
 }
 
 export const getRouteMain = () => '/'
-
-export const getRouteGeneral = () => '/general'
+export const getRouteAuth = () => '/auth'
 export const getRouteAbout = () => '/about'
-
-// export const AppRouteByPathPatterns: Record<string, AppRoutes> = {
-//   [getRouteMain()]: AppRoutes.MAIN,
-//   [getRouteAbout()]: AppRoutes.ABOUT,
-// }

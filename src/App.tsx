@@ -10,10 +10,8 @@ function App() {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
-        console.log('1')
         dispatch(userActions.initAuthData())
-        console.log('2')
-    }, [dispatch]);
+    }, [dispatch])
 
     return (
         <div className='app'>

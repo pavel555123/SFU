@@ -1,0 +1,50 @@
+.AuthPage {
+  display: flex;
+  min-height: 100vh;
+}
+
+.MainHalf {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 150px 250px;
+  width: 50%;
+  background: #383c42;
+}
+
+.mainLogo {
+  position: absolute;
+  top: 50px;
+  left: 70px;
+}
+
+.langSwitcher {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+}
+
+.SecondHalf {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-image: url("@/assets/image1.jpg");
+}
+
+.secLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  margin-left: 180px;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 29.05px;
+  text-align: left;
+  color: #d9d9d9;
+  opacity: 0.75;
+}

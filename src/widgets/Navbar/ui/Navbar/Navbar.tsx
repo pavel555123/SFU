@@ -1,7 +1,7 @@
 import cls from './Navbar.module.scss'
 import {Logo} from "@/shared/ui/Logo"
 import {useNavbarItems} from "@/widgets/Navbar/model/selectors/getNavbarItems.ts"
-import {useCallback, useMemo} from "react"
+import {useCallback, useMemo, useState} from "react"
 import {NavbarItemType} from "@/widgets/Navbar/model/types/navbar.ts"
 import {NavbarItem} from "@/widgets/Navbar/ui/NavbarItem/NavbarItem.tsx"
 import {useTranslation} from "react-i18next"
@@ -19,6 +19,7 @@ export const Navbar = ({className}: NavbarProps) => {
     const navbarItemsList = useNavbarItems()
     const auth = useAppSelector(getUserAuthData)
     const dispatch = useAppDispatch()
+    const [value, setValue] = useState('');
 
     const itemsList = useMemo(
         () =>
@@ -39,11 +40,19 @@ export const Navbar = ({className}: NavbarProps) => {
     return (
         <header className={`${cls.Navbar} ${className}`}>
             <Logo classname={cls.logo}/>
-            <div className={cls.items}>{itemsList}</div>
+            <div className={cls.centralContainer}>
+                <div className={cls.items}>{itemsList}</div>
+                <input
+                    className={cls.input}
+                    type='search'
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+            </div>
             {auth ?
                 <button className={cls.exitBtn} onClick={onLogout}>{t('Выход')}</button>
                 :
-                <Link to='/'>
+                <Link to='/auth'>
                     <button className={cls.loginBtn}>{t('Авторизация')}</button>
                 </Link>
             }
