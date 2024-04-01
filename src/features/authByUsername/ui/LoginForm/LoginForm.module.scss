@@ -26,14 +26,8 @@
   }
 }
 
-.btnGroup {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
 .btn {
-  margin-top: 50px;
+  margin-top: 20px;
   width: 45%;
   height: 44px;
   border: none;
@@ -43,6 +37,7 @@
   font-size: 14px;
   font-weight: 700;
   line-height: 16.94px;
+  cursor: pointer;
 
   &:active {
     border: 1px solid gray;
@@ -68,7 +63,6 @@
   line-height: 16.94px;
   text-align: left;
   color: #6E6D68;
-
 }
 
 .checkbox {

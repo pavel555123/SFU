@@ -5,21 +5,19 @@ import {memo, useCallback, useState} from "react"
 import {loginActions} from "@/features/authByUsername/model/slice/loginSlice.ts"
 import {getLoginState} from "@/features/authByUsername"
 import {useAppSelector} from "@/shared/hooks/useAppSelector/useAppSelector.ts"
-import {loginByUsername} from "@/features/authByUsername/model/services/loginByUsername/loginByUsername.ts"
-// import {registerUser} from "@/features/authByUsername/model/services/registerUser/registerUser.ts"
 import {registerActions} from "@/features/authByUsername/model/slice/registerSlice.ts"
 import {getRegState} from "@/features/authByUsername/model/selectors/getRegState/getRegState.ts"
-import {userActions} from "@/entities/User"
-import {useForm} from "react-hook-form"
+import {SubmitHandler, useForm} from "react-hook-form"
 
 export const LoginForm = memo(() => {
     const {t} = useTranslation()
-    const { register, handleSubmit, formState: {errors} } = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm<IFormInput>();
 
     const dispatch = useAppDispatch()
     const {username, password, error: logError, isLoading: logLoading} = useAppSelector(getLoginState)
     const {error: regError, isLoading: regLoading} = useAppSelector(getRegState)
-    //error, isLoading
+
+    const [hasAccount, setHasAccount] = useState(false)
 
     const onChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value))
@@ -39,36 +37,48 @@ export const LoginForm = memo(() => {
         onChangePassword?.(e.target.value)
     }
 
-    const onLoginClick = useCallback(() => {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
-        dispatch(loginByUsername({username, password}))
-    }, [dispatch, password, username])
+    interface IFormInput {
+        email: string
+        password: string
+    }
 
-    // const onRegClick = useCallback(() => {
-    //     dispatch(registerUser({username, password}))
-    //     console.log(regError?.message)
-    //     if(regError === undefined) {
-    //         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //         // @ts-expect-error
+    // const onLoginClick: SubmitHandler<IFormInput> = useCallback(() => {
+    //     if(!errors.email && !errors.password) {
+    //         // @ts-ignore
     //         dispatch(loginByUsername({username, password}))
-    //     } else {
-    //         console.log('error')
     //     }
-    // }, [dispatch, password, username, regError])
+    // }, [dispatch, password, username, errors.password, errors.email])
+    //
+    // const onRegClick: SubmitHandler<IFormInput> = useCallback(() => {
+    //     if(!errors.email && !errors.password) {
+    //         console.log(errors.email, errors.password)
+    //         dispatch(registerUser({username, password}))
+    //         if (regError === undefined) {
+    //             // @ts-ignore
+    //             dispatch(loginByUsername({username, password}))
+    //         } else {
+    //             console.log('error')
+    //         }
+    //     }
+    //     console.log(errors.email, errors.password)
+    // }, [dispatch, password, username, regError, errors.email, errors.password])
+    const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data)
 
     const [checked, setChecked] = useState(false)
     const handleChecked = (e: { target: { checked: boolean | ((prevState: boolean) => boolean); }; }) => {
         setChecked(e.target.checked)
     }
 
-    const onLogout = useCallback(() => {
-        dispatch(userActions.logout())
-    }, [dispatch])
+    const onChangeForm = useCallback(() => {
+        setHasAccount(!hasAccount)
+    }, [hasAccount])
 
     return (
-        <form className={cls.LoginForm} onSubmit={handleSubmit(onLoginClick)}>
-            <label htmlFor="email">{t('Почта')}</label>
+        <form
+            className={cls.LoginForm}
+            onSubmit={handleSubmit(onSubmit)}
+            // onSubmit={hasAccount ? handleSubmit(onLoginClick) : handleSubmit(onRegClick)}
+        >
             <input
                 className={cls.input}
                 type='email'
@@ -82,7 +92,6 @@ export const LoginForm = memo(() => {
                 })}
                 onChange={onChangeHandler1}
                 value={username}
-                required
             />
             {errors.email && errors.email.type === "required" && (
                 <div className={cls.error}>You must enter your email</div>
@@ -93,7 +102,7 @@ export const LoginForm = memo(() => {
                 placeholder={t('Пароль')}
                 {...register("password", {
                     required: 'Password in required',
-                    minLength: 8 , maxLength: 12,
+                    minLength: 8, maxLength: 12,
                     pattern: {
                         value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                         message: 'Please enter a valid password',
@@ -101,7 +110,6 @@ export const LoginForm = memo(() => {
                 })}
                 onChange={onChangeHandler2}
                 value={password}
-                required
             />
             {errors.password && errors.password.type === "required" && (
                 <div className={cls.error}>You must enter your password</div>
@@ -120,26 +128,34 @@ export const LoginForm = memo(() => {
                     />
                     <label>{t('Запомнить меня')}</label>
                 </div>
-                <a href="#" className={cls.forgotPassword}>{t('Забыли пароль?')}</a>
+                {hasAccount ?
+                    <a href="#" className={cls.forgotPassword}>{t('Забыли пароль?')}</a>
+                    :
+                    <a href="#" className={cls.forgotPassword} onClick={onChangeForm}>{t('Есть аккаунт')}</a>
+                }
             </div>
             {regLoading && <span className={cls.loader}></span>}
             {logLoading && <span className={cls.loader}></span>}
             {regError && <p className={cls.error}>{t('Ошибка регистрации')}</p>}
             {logError && <p className={cls.error}>{t('Ошибка входа')}</p>}
-            <div className={cls.btnGroup}>
+            {hasAccount ?
                 <button
                     className={cls.btn}
-                >
-                    {t('Регистрация')}
-                </button>
-                <button
-                    className={cls.btn}
+                    type='submit'
                     // onClick={onLoginClick}
                 >
                     {t('Войти')}
                 </button>
-            </div>
-            <button type='submit' onClick={onLogout}>logout</button>
+                :
+                <input type='submit'/>
+                // <button
+                //     className={cls.btn}
+                //     type='submit'
+                //     onClick={onRegClick}
+                // >
+                //     {t('Регистрация')}
+                // </button>
+            }
         </form>
     )
 })
