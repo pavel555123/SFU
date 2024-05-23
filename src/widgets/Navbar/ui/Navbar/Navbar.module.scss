@@ -23,7 +23,7 @@
   padding-left: 50px;
   border: none;
   border-radius: 20px;
-  background: #FFFFFF url("@/assets/search.svg") no-repeat left center;
+  background: #ffffff url("@/assets/search.svg") no-repeat left center;
   color: #414042;
 
   &:focus {
@@ -39,11 +39,20 @@
   height: 47px;
   padding: 11px 33px 12px 34px;
   border-radius: 20px;
-  background: linear-gradient(180deg, #B1B6D6 0%, #656877 100%),
-  radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(92, 92, 92, 0.102509) 54.5%, rgba(0, 0, 0, 0.16) 100%);
-  border-image-source: radial-gradient(76.9% 117.49% at 50% 50%, #FFFFFF 5.48%, rgba(153, 153, 153, 0) 100%);
-  box-shadow: 0 4px 120px 0 #868AA0B2;
-  color: #000000B5;
+  background: linear-gradient(180deg, #b1b6d6 0%, #656877 100%),
+    radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(92, 92, 92, 0.102509) 54.5%,
+      rgba(0, 0, 0, 0.16) 100%
+    );
+  border-image-source: radial-gradient(
+    76.9% 117.49% at 50% 50%,
+    #ffffff 5.48%,
+    rgba(153, 153, 153, 0) 100%
+  );
+  box-shadow: 0 4px 120px 0 #868aa0b2;
+  color: #000000b5;
   font-family: Jura, serif;
   font-size: 20px;
   font-weight: 700;
@@ -53,7 +62,7 @@
   transition: 0.25s;
 
   &:hover {
-    color: #FFFFFF;
+    color: #ffffff;
   }
 }
 
@@ -63,6 +72,12 @@
 }
 
 .active {
-  box-shadow: 0 4px 40px 0 #FFFFFF;
+  // box-shadow: 0 4px 40px 0 #FFFFFF;
+  // background: radial-gradient(
+  //   circle,
+  //   rgba(255, 255, 255, 0.5),
+  //   rgba(0, 0, 0, 0)
+  // );
+  filter: drop-shadow(0 0 10px rgb(255, 255, 255));
   opacity: 1 !important;
 }

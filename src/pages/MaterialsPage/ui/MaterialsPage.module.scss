@@ -1,0 +1,37 @@
+.MaterialsPage {
+}
+
+.sectionBody {
+  display: flex;
+  justify-content: center;
+}
+
+.bodyInner {
+  width: 60%;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.docPreview {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.buttonLink {
+  color: white;
+}
+
+.buttonInner {
+  background: transparent;
+}
