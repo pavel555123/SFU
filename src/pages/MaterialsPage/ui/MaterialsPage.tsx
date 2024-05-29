@@ -85,7 +85,7 @@ export const MaterialsPage = () => {
                     </svg>
                   </div>
                   <div className="doc-preview__body">
-                    DOC <br />3 Мб
+                    DOC <br />10,2 Мб
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@ export const MaterialsPage = () => {
                   Техническая информация
                 </div>
                 <div className="doc-item__title h4">
-                  Урок 1. Знакомство с интернетом
+                  Урок 2. Основа модели
                 </div>
               </div>
               <div className="doc-item__lock l-col"></div>
@@ -138,7 +138,7 @@ export const MaterialsPage = () => {
                     </svg>
                   </div>
                   <div className="doc-preview__body">
-                    DOC <br />3 Мб
+                    DOC <br />2,3 Мб
                   </div>
                 </div>
               </div>
@@ -147,7 +147,7 @@ export const MaterialsPage = () => {
                   Техническая информация
                 </div>
                 <div className="doc-item__title h4">
-                  Урок 1. Знакомство с интернетом
+                  Урок 3. Дополнительные объекты
                 </div>
               </div>
               <div className="doc-item__lock l-col"></div>
@@ -191,7 +191,7 @@ export const MaterialsPage = () => {
                     </svg>
                   </div>
                   <div className="doc-preview__body">
-                    DOC <br />3 Мб
+                    DOC <br />1,8 Мб
                   </div>
                 </div>
               </div>
@@ -200,7 +200,7 @@ export const MaterialsPage = () => {
                   Техническая информация
                 </div>
                 <div className="doc-item__title h4">
-                  Урок 1. Знакомство с интернетом
+                  Урок 4.Материалы
                 </div>
               </div>
               <div className="doc-item__lock l-col"></div>
@@ -244,7 +244,7 @@ export const MaterialsPage = () => {
                     </svg>
                   </div>
                   <div className="doc-preview__body">
-                    DOC <br />3 Мб
+                    DOC <br />81 Кб
                   </div>
                 </div>
               </div>
@@ -253,7 +253,7 @@ export const MaterialsPage = () => {
                   Техническая информация
                 </div>
                 <div className="doc-item__title h4">
-                  Урок 1. Знакомство с интернетом
+                  Урок 5. Сцена и рендер 
                 </div>
               </div>
               <div className="doc-item__lock l-col"></div>
