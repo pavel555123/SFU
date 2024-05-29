@@ -10,23 +10,15 @@ export const useNavbarItems = () => {
 
   const navbarItemsList: NavbarItemType[] = [
     {
-      path: getRouteAbout(),
-      text: "О нас",
-    },
-    {
-      path: getRouteMain(),
-      text: "Моделирование",
-    },
-    {
       path: getRouteMaterials(),
-      text: "Материалы",
+      text: "Моделирование",
     },
     {
       path: getRouteAbout(),
       text: "Рендеры",
     },
     {
-      path: "getRouteMain()",
+      path: getRouteMain(),
       text: "Модели",
     },
   ];

@@ -49,7 +49,6 @@ export const MaterialsPage = () => {
                 <a
                   href="src/shared/docs/Urok_1_Znakomstvo_s_interfeysom.docx"
                   className={cls.buttonLink}
-                  target="_blank"
                 >
                   <span className={cls.buttonInner}>
                     <span className="button__text">Скачать документ</span>
@@ -85,7 +84,8 @@ export const MaterialsPage = () => {
                     </svg>
                   </div>
                   <div className="doc-preview__body">
-                    DOC <br />10,2 Мб
+                    DOC <br />
+                    10,2 Мб
                   </div>
                 </div>
               </div>
@@ -93,16 +93,13 @@ export const MaterialsPage = () => {
                 <div className="doc-item__caption caption">
                   Техническая информация
                 </div>
-                <div className="doc-item__title h4">
-                  Урок 2. Основа модели
-                </div>
+                <div className="doc-item__title h4">Урок 2. Основа модели</div>
               </div>
               <div className="doc-item__lock l-col"></div>
               <div className="doc-item__more l-col">
                 <a
                   href="src/shared/docs/Urok_2_Osnova_modeli.docx"
                   className={cls.buttonLink}
-                  target="_blank"
                 >
                   <span className={cls.buttonInner}>
                     <span className="button__text">Скачать документ</span>
@@ -138,7 +135,8 @@ export const MaterialsPage = () => {
                     </svg>
                   </div>
                   <div className="doc-preview__body">
-                    DOC <br />2,3 Мб
+                    DOC <br />
+                    2,3 Мб
                   </div>
                 </div>
               </div>
@@ -155,7 +153,6 @@ export const MaterialsPage = () => {
                 <a
                   href="src/shared/docs/Urok_3_Dopolnitelnye_obekty.docx"
                   className={cls.buttonLink}
-                  target="_blank"
                 >
                   <span className={cls.buttonInner}>
                     <span className="button__text">Скачать документ</span>
@@ -191,7 +188,8 @@ export const MaterialsPage = () => {
                     </svg>
                   </div>
                   <div className="doc-preview__body">
-                    DOC <br />1,8 Мб
+                    DOC <br />
+                    1,8 Мб
                   </div>
                 </div>
               </div>
@@ -199,16 +197,13 @@ export const MaterialsPage = () => {
                 <div className="doc-item__caption caption">
                   Техническая информация
                 </div>
-                <div className="doc-item__title h4">
-                  Урок 4.Материалы
-                </div>
+                <div className="doc-item__title h4">Урок 4.Материалы</div>
               </div>
               <div className="doc-item__lock l-col"></div>
               <div className="doc-item__more l-col">
                 <a
                   href="src/shared/docs/Urok_4_Materialy.docx"
                   className={cls.buttonLink}
-                  target="_blank"
                 >
                   <span className={cls.buttonInner}>
                     <span className="button__text">Скачать документ</span>
@@ -244,7 +239,8 @@ export const MaterialsPage = () => {
                     </svg>
                   </div>
                   <div className="doc-preview__body">
-                    DOC <br />81 Кб
+                    DOC <br />
+                    81 Кб
                   </div>
                 </div>
               </div>
@@ -252,16 +248,13 @@ export const MaterialsPage = () => {
                 <div className="doc-item__caption caption">
                   Техническая информация
                 </div>
-                <div className="doc-item__title h4">
-                  Урок 5. Сцена и рендер 
-                </div>
+                <div className="doc-item__title h4">Урок 5. Сцена и рендер</div>
               </div>
               <div className="doc-item__lock l-col"></div>
               <div className="doc-item__more l-col">
                 <a
                   href="src/shared/docs/Urok_5_Stsena_i_render.docx"
                   className={cls.buttonLink}
-                  target="_blank"
                 >
                   <span className={cls.buttonInner}>
                     <span className="button__text">Скачать документ</span>
